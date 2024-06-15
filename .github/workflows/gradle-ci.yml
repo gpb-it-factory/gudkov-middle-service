@@ -21,13 +21,19 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+      # Setting up gradle with selected version
+      - name: Setup Gradle with version 8.7
+        uses: gradle/actions/setup-gradle@v3
+        with:
+            gradle-version: 8.7
+
+      # Deprecated Gradle features were used in this task, making it incompatible with Gradle 9.0.
+      - name: Running tests before Build
+        run: ./gradlew test
 
       # The starter workflow will run the BUILD task by default. In the default Gradle configuration,
       # this command will download dependencies, build classes, run tests,
       # and package classes into their distributable format, for example, a JAR file.
-
       - name: Build with Gradle Wrapper
         run: ./gradlew build
 
