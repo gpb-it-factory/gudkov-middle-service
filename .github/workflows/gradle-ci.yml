@@ -27,15 +27,15 @@ jobs:
         with:
             gradle-version: 8.7
 
+      # The starter workflow will run the BUILD task by default. In the default Gradle configuration,
+      # this command will download dependencies, build classes,DO NOT run tests (excluded),
+      # and package classes into their distributable format, for example, a JAR file.
+      - name: Build with Gradle Wrapper
+        run: ./gradlew build -x test
+
       # Deprecated Gradle features were used in this task, making it incompatible with Gradle 9.0.
       - name: Running tests before Build
         run: ./gradlew test
-
-      # The starter workflow will run the BUILD task by default. In the default Gradle configuration,
-      # this command will download dependencies, build classes, run tests,
-      # and package classes into their distributable format, for example, a JAR file.
-      - name: Build with Gradle Wrapper
-        run: ./gradlew build
 
   dependency-submission:
 
