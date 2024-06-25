@@ -21,6 +21,4 @@ public class AccountCreationController {
                                                @Valid @RequestBody CreateAccountRequestV2 createAccountRequestV2){
         return accountCreationService.createUserAccount(id,createAccountRequestV2);
     }
-
-
 }

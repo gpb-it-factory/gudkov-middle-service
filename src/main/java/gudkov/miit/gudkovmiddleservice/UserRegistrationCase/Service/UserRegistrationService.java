@@ -20,7 +20,6 @@ import java.util.UUID;
 
 /**
  * This service is built according to OpenAPI specification.
- * Current version of middleAPI - 0.1b
  * This service is not implementing OpenAPIGenerator's interface
  * Not implementing deprecated endpoints either
  */

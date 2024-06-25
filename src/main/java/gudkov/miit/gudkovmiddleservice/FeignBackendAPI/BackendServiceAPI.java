@@ -28,4 +28,9 @@ public interface BackendServiceAPI {
                     produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<?> createUserAccountV2(@PathVariable("id") long id,
                                           @Valid @RequestBody CreateAccountRequestV2 createAccountRequestV2);
+
+    @RequestMapping(method = RequestMethod.GET,
+            value ="/v2/users/{id}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<?> getUserByTelegramIdV2(@PathVariable("id") long id);
 }

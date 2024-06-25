@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  title: GPB IT Factory Gudkov Mini-Bank API (middle)
+  title: GPB IT Factory Gudkov Mini-Bank API (backend)
   version: 0.0.2
 
 paths:
@@ -70,6 +70,34 @@ paths:
       responses:
         '204':
           description: Счёт создан
+        default:
+          description: Непредвиденная ошибка
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorV2'
+
+  /v2/users/{id}:
+    get:
+      operationId: getUserByTelegramIdV2
+      summary: Получить пользователя по идентификатору в Telegram (V2)
+      tags: [ users ]
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 467385
+          description: Идентификатор искомого пользователя
+      responses:
+        '200':
+          description: Данные о пользователе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserResponseV2'
         default:
           description: Непредвиденная ошибка
           content:
@@ -155,6 +183,17 @@ components:
           example: 'My first awesome account'
       required:
         - accountName
+    UserResponseV2:
+      type: object
+      description: Информация о пользователе (V2)
+      properties:
+        userId:
+          description: Идентификатор пользователя в backend-сервисе
+          type: string
+          format: uuid
+          example: 2d7b7a7a-680e-422e-9cc3-23c68e2ff398
+      required:
+        - userId
 tags:
   - name: users
     description: Операции с пользователями
