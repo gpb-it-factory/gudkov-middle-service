@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openapi.example.model.ErrorV2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +16,9 @@ public class BackendResponseHandler {
 
     private static final Logger log = LoggerFactory.getLogger(BackendResponseHandler.class);
 
-    public ResponseEntity<?> handleBackendResponse(ResponseEntity<?> response){
+    public ResponseEntity<?> handleUserCreateBackendResponse(ResponseEntity<?> response){
         if(response.getStatusCode().value() == 204){
-            return new ResponseEntity<>(response.getStatusCode());
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             //todo; ну че-то подумать надо, а то выглядит как мясо
             ErrorV2 responseError = new ErrorV2();
