@@ -1,9 +1,9 @@
 package gudkov.miit.gudkovmiddleservice.AccountCreationCase.Utils;
 
 import feign.FeignException;
-import gudkov.miit.gudkovmiddleservice.FeignBackendAPI.BackendServiceAPI;
-import gudkov.miit.gudkovmiddleservice.ValidationUtils.ValidationDataMocker;
-import gudkov.miit.gudkovmiddleservice.ValidationUtils.ValidationResponseHandler;
+import gudkov.miit.gudkovmiddleservice.AccountCreationCase.FeignBackendAPI.AccountCreateBackendServiceAPI;
+import gudkov.miit.gudkovmiddleservice.AccountCreationCase.Utils.ValidationUtils.AccountCreationValidationDataMocker;
+import gudkov.miit.gudkovmiddleservice.AccountCreationCase.Utils.ValidationUtils.AccountCreationValidationResponseHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +19,13 @@ import java.time.LocalDateTime;
 public class AccountCreationRequestValidator {
 
     private static final Logger log = LoggerFactory.getLogger(AccountCreationRequestValidator.class);
-    private final BackendServiceAPI backendServiceAPI;
-    private final ValidationDataMocker validationDataMocker;
-    private final ValidationResponseHandler validationResponseHandler;
+    private final AccountCreateBackendServiceAPI backendServiceAPI;
+    private final AccountCreationValidationDataMocker validationDataMocker;
+    private final AccountCreationValidationResponseHandler validationResponseHandler;
 
-    public AccountCreationRequestValidator(BackendServiceAPI backendServiceAPI,
-                                           ValidationDataMocker validationDataMocker,
-                                           ValidationResponseHandler validationResponseHandler){
+    public AccountCreationRequestValidator(AccountCreateBackendServiceAPI backendServiceAPI,
+                                           AccountCreationValidationDataMocker validationDataMocker,
+                                           AccountCreationValidationResponseHandler validationResponseHandler){
         this.backendServiceAPI = backendServiceAPI;
         this.validationDataMocker = validationDataMocker;
         this.validationResponseHandler = validationResponseHandler;
