@@ -2,10 +2,10 @@ package gudkov.miit.gudkovmiddleservice.AccountCreationCase.Service;
 
 
 import feign.FeignException;
+import gudkov.miit.gudkovmiddleservice.AccountCreationCase.FeignBackendAPI.AccountCreateBackendServiceAPI;
 import gudkov.miit.gudkovmiddleservice.AccountCreationCase.Utils.AccountCreationBackendResponseHandler;
 import gudkov.miit.gudkovmiddleservice.AccountCreationCase.Utils.AccountCreationRequestValidator;
 import gudkov.miit.gudkovmiddleservice.AccountCreationCase.Utils.AccountCreationResponseMocker;
-import gudkov.miit.gudkovmiddleservice.FeignBackendAPI.BackendServiceAPI;
 import jakarta.validation.Valid;
 import org.openapi.example.model.CreateAccountRequestV2;
 import org.openapi.example.model.ErrorV2;
@@ -27,12 +27,12 @@ import java.util.UUID;
 public class AccountCreationService {
 
     private static final Logger log = LoggerFactory.getLogger(AccountCreationService.class);
-    private final BackendServiceAPI backendServiceAPI;
+    private final AccountCreateBackendServiceAPI backendServiceAPI;
     private final AccountCreationBackendResponseHandler backendResponseHandler;
     private final AccountCreationResponseMocker responseMocker;
     private final AccountCreationRequestValidator requestValidator;
 
-    public AccountCreationService(BackendServiceAPI backendServiceAPI,
+    public AccountCreationService(AccountCreateBackendServiceAPI backendServiceAPI,
                                   AccountCreationBackendResponseHandler backendResponseHandler,
                                   AccountCreationResponseMocker responseMocker,
                                   AccountCreationRequestValidator requestValidator){
