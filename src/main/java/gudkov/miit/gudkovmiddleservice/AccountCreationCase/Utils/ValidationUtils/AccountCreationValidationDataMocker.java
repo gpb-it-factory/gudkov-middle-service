@@ -1,4 +1,4 @@
-package gudkov.miit.gudkovmiddleservice.ValidationUtils;
+package gudkov.miit.gudkovmiddleservice.AccountCreationCase.Utils.ValidationUtils;
 
 
 import org.openapi.example.model.UserResponseV2;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.UUID;
 
 @Component
-public class ValidationDataMocker {
+public class AccountCreationValidationDataMocker {
 
     public ResponseEntity<?> getUserByTelegramId_Found(){
         UserResponseV2 data = new UserResponseV2(UUID.randomUUID());

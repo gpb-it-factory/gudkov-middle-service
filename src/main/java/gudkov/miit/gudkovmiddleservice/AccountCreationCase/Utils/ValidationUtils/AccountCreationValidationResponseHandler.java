@@ -1,4 +1,4 @@
-package gudkov.miit.gudkovmiddleservice.ValidationUtils;
+package gudkov.miit.gudkovmiddleservice.AccountCreationCase.Utils.ValidationUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,8 +17,8 @@ import java.time.LocalDateTime;
  *  - otherwise we suppose that undefined error and map it into ErrorV2
  */
 @Component
-public class ValidationResponseHandler {
-    private static final Logger log = LoggerFactory.getLogger(ValidationResponseHandler.class);
+public class AccountCreationValidationResponseHandler {
+    private static final Logger log = LoggerFactory.getLogger(AccountCreationValidationResponseHandler.class);
 
     public ResponseEntity<?> handleGetUserByTelegramIdResponse(ResponseEntity<?> response){
         if (response.getStatusCode().value() == 200) {

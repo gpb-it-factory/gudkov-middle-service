@@ -1,8 +1,7 @@
-package gudkov.miit.gudkovmiddleservice.FeignBackendAPI;
+package gudkov.miit.gudkovmiddleservice.AccountCreationCase.FeignBackendAPI;
 
 import jakarta.validation.Valid;
 import org.openapi.example.model.CreateAccountRequestV2;
-import org.openapi.example.model.CreateUserRequestV2;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * FeignClient to communicate with backend-service
  */
 
-@FeignClient(name = "backendService", url = "${backend.server.url}")
-public interface BackendServiceAPI {
-
-    @RequestMapping(method = RequestMethod.POST,
-                    value ="/v2/users",
-                    produces = MediaType.APPLICATION_JSON_VALUE)
-    ResponseEntity<?> createUserV2(@Valid @RequestBody CreateUserRequestV2 createUserRequestV2);
-
+@FeignClient(name = "AccountCreationBackendService", url = "${backend.server.url}")
+public interface AccountCreateBackendServiceAPI {
     @RequestMapping(method = RequestMethod.POST,
                     value ="/v2/users/{id}/accounts",
                     produces = MediaType.APPLICATION_JSON_VALUE)

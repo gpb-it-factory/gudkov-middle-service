@@ -1,7 +1,7 @@
 package gudkov.miit.gudkovmiddleservice.UserRegistrationCase.Service;
 
 import feign.FeignException;
-import gudkov.miit.gudkovmiddleservice.FeignBackendAPI.BackendServiceAPI;
+import gudkov.miit.gudkovmiddleservice.UserRegistrationCase.FeignBackendAPI.UserRegistrationBackendServiceAPI;
 import gudkov.miit.gudkovmiddleservice.UserRegistrationCase.Utils.UserRegistrationBackendResponseMocker;
 import gudkov.miit.gudkovmiddleservice.UserRegistrationCase.Utils.BackendResponseHandler;
 import jakarta.validation.Valid;
@@ -27,11 +27,11 @@ import java.util.UUID;
 public class UserRegistrationService {
 
     private static final Logger log = LoggerFactory.getLogger(UserRegistrationService.class);
-    private final BackendServiceAPI backendServiceAPI;
+    private final UserRegistrationBackendServiceAPI backendServiceAPI;
     private final BackendResponseHandler backendResponseHandler;
     private final UserRegistrationBackendResponseMocker backendRequestMocker;
 
-    public UserRegistrationService(BackendServiceAPI backendServiceAPI,
+    public UserRegistrationService(UserRegistrationBackendServiceAPI backendServiceAPI,
                                    BackendResponseHandler backendResponseHandler,
                                    UserRegistrationBackendResponseMocker backendRequestMocker){
         this.backendServiceAPI = backendServiceAPI;
